@@ -26,6 +26,15 @@ file(GLOB donut_app_src
     src/app/*.cpp
 )
 
+#[[ 26/06/2025 ]]
+list(FILTER donut_app_src EXCLUDE REGEX ".*imgui_nvrhi\\.cpp$")
+list(FILTER donut_app_src EXCLUDE REGEX ".*imgui_console\\.h$")
+list(FILTER donut_app_src EXCLUDE REGEX ".*imgui_console\\.cpp$")
+list(FILTER donut_app_src EXCLUDE REGEX ".*UserInterfaceUtils\\.cpp$")
+list(FILTER donut_app_src EXCLUDE REGEX ".*imgui_nvrhi\\.h$")
+list(FILTER donut_app_src EXCLUDE REGEX ".*imgui_renderer\\.h$")
+list(FILTER donut_app_src EXCLUDE REGEX ".*imgui_renderer\\.cpp$")
+
 file(GLOB donut_app_vr_src
     include/donut/app/vr/*.h
     src/app/vr/*.cpp
@@ -75,8 +84,9 @@ if(STREAMLINE_FEATURE_REFLEX)
 endif()
 
 endif() #DONUT_WITH_STREAMLINE
-
-target_link_libraries(donut_app donut_core donut_engine glfw imgui)
+#[[ 26/06/2025 ]]
+#[[target_link_libraries(donut_app donut_core donut_engine glfw imgui)]]
+target_link_libraries(donut_app donut_core donut_engine glfw)
 
 if(DONUT_WITH_DX11)
     target_sources(donut_app PRIVATE src/app/dx11/DeviceManager_DX11.cpp)

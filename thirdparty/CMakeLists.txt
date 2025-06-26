@@ -26,8 +26,9 @@ set(third_party_folder "Third-Party Libraries")
 set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
 
 if (DONUT_WITH_NVRHI AND NOT TARGET imgui)
-    include(imgui.cmake)
-    set_target_properties(imgui PROPERTIES FOLDER ${third_party_folder})
+    #[[ 26/05/2025 ]]
+    #[[ include(imgui.cmake) ]]
+    #[[set_target_properties(imgui PROPERTIES FOLDER ${third_party_folder})]]
 endif()
 
 if (NOT TARGET jsoncpp_static)
